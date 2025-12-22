@@ -103,7 +103,7 @@ export default function Avatar({ isSpeaking, videoToPlay, onVideoEnd }) {
         controlsList="nodownload nofullscreen noremoteplayback"
         style={{ pointerEvents: 'none', display: showIntro ? 'block' : 'none' }}
       >
-        <source src="/Intro.mp4" type="video/mp4" />
+        <source src="/me/Intro.mp4" type="video/mp4" />
       </video>
 
       {/* Idle Loop Video */}
@@ -119,7 +119,7 @@ export default function Avatar({ isSpeaking, videoToPlay, onVideoEnd }) {
         controlsList="nodownload nofullscreen noremoteplayback"
         style={{ pointerEvents: 'none', display: !showIntro ? 'block' : 'none' }}
       >
-        <source src="/Idle.mp4" type="video/mp4" />
+        <source src="/me/Idle.mp4" type="video/mp4" />
       </video>
 
       {/* Content Video Overlay */}

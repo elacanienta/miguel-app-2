@@ -9,7 +9,7 @@ export default function Home() {
   const [currentVideo, setCurrentVideo] = useState(null);
 
   const playVideo = (videoName) => {
-    setCurrentVideo(`/${videoName}.mp4`);
+    setCurrentVideo(`/me/${videoName}.mp4`);
   };
 
   const handleVideoEnd = () => {
