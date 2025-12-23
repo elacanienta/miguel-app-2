@@ -95,38 +95,104 @@ export default function Home() {
               <p className="text-sm text-gray-600 max-w-2xl mx-auto">
                 This is a static portfolio site. For an interactive AI-powered chat experience, visit one of our mirror sites:
               </p>
-              <div className="flex flex-wrap justify-center gap-3 pt-2">
+              <p className="text-xs text-gray-500 max-w-2xl mx-auto italic">
+                Note: Some sites may be temporarily unavailable due to free tier limitations or usage caps.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+                {/* Vercel Card */}
                 <a
                   href="https://miguel-ai.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-800 text-sm font-medium border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-2 h-2 rounded-full bg-black"></div>
-                  Vercel
+                  className="group bg-white rounded-xl p-4 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-200 cursor-pointer">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-3 h-3 rounded-full bg-black"></div>
+                    <h4 className="text-base font-semibold text-gray-900">Vercel</h4>
+                  </div>
+                  <div className="space-y-1.5">
+                    <div className="flex items-start gap-1.5">
+                      <span className="text-gray-400 text-xs mt-0.5">•</span>
+                      <p className="text-xs"><span className="text-gray-700 font-medium">Llama 3.3 70B</span> <span className="text-gray-400">/ Groq</span></p>
+                    </div>
+                    <div className="flex items-start gap-1.5">
+                      <span className="text-gray-400 text-xs mt-0.5">•</span>
+                      <p className="text-xs"><span className="text-gray-700 font-medium">Gemma 3 27B</span> <span className="text-gray-400">/ Google</span></p>
+                    </div>
+                    <div className="flex items-start gap-1.5">
+                      <span className="text-gray-400 text-xs mt-0.5">•</span>
+                      <p className="text-xs"><span className="text-gray-700 font-medium">Mistral Large</span> <span className="text-gray-400">/ Mistral AI</span></p>
+                    </div>
+                  </div>
                 </a>
+
+                {/* Netlify Card */}
                 <a
                   href="https://miguel-ai.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-teal-600 text-sm font-medium border border-teal-200 hover:border-teal-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-2 h-2 rounded-full bg-teal-500"></div>
-                  Netlify
+                  className="group bg-white rounded-xl p-4 border border-teal-200 hover:border-teal-300 hover:shadow-lg transition-all duration-200 cursor-pointer">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-3 h-3 rounded-full bg-teal-500"></div>
+                    <h4 className="text-base font-semibold text-teal-700">Netlify</h4>
+                  </div>
+                  <div className="space-y-1.5">
+                    <div className="flex items-start gap-1.5">
+                      <span className="text-gray-400 text-xs mt-0.5">•</span>
+                      <p className="text-xs"><span className="text-gray-700 font-medium">Llama 3.3 70B</span> <span className="text-gray-400">/ Groq</span></p>
+                    </div>
+                    <div className="flex items-start gap-1.5">
+                      <span className="text-gray-400 text-xs mt-0.5">•</span>
+                      <p className="text-xs"><span className="text-gray-700 font-medium">Gemma 3 27B</span> <span className="text-gray-400">/ Google</span></p>
+                    </div>
+                    <div className="flex items-start gap-1.5">
+                      <span className="text-gray-400 text-xs mt-0.5">•</span>
+                      <p className="text-xs"><span className="text-gray-700 font-medium">Mistral Large</span> <span className="text-gray-400">/ Mistral AI</span></p>
+                    </div>
+                  </div>
                 </a>
+
+                {/* Render Card */}
                 <a
                   href="https://miguel-ai.onrender.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-purple-600 text-sm font-medium border border-purple-200 hover:border-purple-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-2 h-2 rounded-full bg-purple-500"></div>
-                  Render
+                  className="group bg-white rounded-xl p-4 border border-purple-200 hover:border-purple-300 hover:shadow-lg transition-all duration-200 cursor-pointer">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-3 h-3 rounded-full bg-purple-500"></div>
+                    <h4 className="text-base font-semibold text-purple-700">Render</h4>
+                  </div>
+                  <div className="space-y-1.5">
+                    <div className="flex items-start gap-1.5">
+                      <span className="text-gray-400 text-xs mt-0.5">•</span>
+                      <p className="text-xs"><span className="text-gray-700 font-medium">Llama 3.3 70B</span> <span className="text-gray-400">/ Groq</span></p>
+                    </div>
+                    <div className="flex items-start gap-1.5">
+                      <span className="text-gray-400 text-xs mt-0.5">•</span>
+                      <p className="text-xs"><span className="text-gray-700 font-medium">Gemma 3 27B</span> <span className="text-gray-400">/ Google</span></p>
+                    </div>
+                    <div className="flex items-start gap-1.5">
+                      <span className="text-gray-400 text-xs mt-0.5">•</span>
+                      <p className="text-xs"><span className="text-gray-700 font-medium">Mistral Large</span> <span className="text-gray-400">/ Mistral AI</span></p>
+                    </div>
+                  </div>
                 </a>
+
+                {/* Cloudflare Card */}
                 <a
                   href="https://miguel-ai.pages.dev/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-orange-600 text-sm font-medium border border-orange-200 hover:border-orange-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-2 h-2 rounded-full bg-orange-500"></div>
-                  Cloudflare
+                  className="group bg-white rounded-xl p-4 border border-orange-200 hover:border-orange-300 hover:shadow-lg transition-all duration-200 cursor-pointer">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-3 h-3 rounded-full bg-orange-500"></div>
+                    <h4 className="text-base font-semibold text-orange-700">Cloudflare</h4>
+                  </div>
+                  <div className="space-y-1.5">
+                    <div className="flex items-start gap-1.5">
+                      <span className="text-gray-400 text-xs mt-0.5">•</span>
+                      <p className="text-xs"><span className="text-gray-700 font-medium">Mistral Large</span> <span className="text-gray-400">/ Mistral AI</span></p>
+                    </div>
+                  </div>
                 </a>
               </div>
             </div>
