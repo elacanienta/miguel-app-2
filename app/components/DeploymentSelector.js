@@ -11,7 +11,7 @@ const deployments = [
   },
   {
     name: 'Netlify',
-    url: 'https://miguel-ai.netlify-2.app/',
+    url: 'https://miguel-ai-2.netlify.app/',
     color: 'bg-teal-500',
     textColor: 'text-teal-600'
   },
@@ -127,4 +127,5 @@ export default function DeploymentSelector() {
     </div>
   );
 }
+
 
