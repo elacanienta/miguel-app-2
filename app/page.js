@@ -108,8 +108,6 @@ export default function Home() {
                 {/* Vercel Card */}
                 <a
                   href="https://miguel-ai.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="group bg-white rounded-xl p-4 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-200 cursor-pointer">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-3 h-3 rounded-full bg-black"></div>
@@ -134,8 +132,6 @@ export default function Home() {
                 {/* Netlify Card */}
                 <a
                   href="https://miguel-ai-2.netlify.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="group bg-white rounded-xl p-4 border border-teal-200 hover:border-teal-300 hover:shadow-lg transition-all duration-200 cursor-pointer">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-3 h-3 rounded-full bg-teal-500"></div>
@@ -160,8 +156,6 @@ export default function Home() {
                 {/* Render Card */}
                 <a
                   href="https://miguel-ai.onrender.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="group bg-white rounded-xl p-4 border border-purple-200 hover:border-purple-300 hover:shadow-lg transition-all duration-200 cursor-pointer">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-3 h-3 rounded-full bg-purple-500"></div>
@@ -186,8 +180,6 @@ export default function Home() {
                 {/* Cloudflare Card */}
                 <a
                   href="https://miguel-ai.pages.dev/"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="group bg-white rounded-xl p-4 border border-orange-200 hover:border-orange-300 hover:shadow-lg transition-all duration-200 cursor-pointer">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-3 h-3 rounded-full bg-orange-500"></div>
