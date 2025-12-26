@@ -99,7 +99,16 @@ export default function Home() {
                 <h3 className="text-lg font-semibold text-gray-900">Want to chat with me?</h3>
               </div>
               <p className="text-sm text-gray-600 max-w-2xl mx-auto">
-                This is a static portfolio site. For an interactive AI-powered chat experience, visit one of our mirror sites:
+                This is a static portfolio site. For an interactive AI-powered chat experience, try my{' '}
+                <a 
+                  href="https://chatgpt.com/g/g-694e44e347008191abda5449e3a9eaa5-miguel-gpt" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 font-medium underline"
+                >
+                  Custom GPT
+                </a>{' '}
+                or visit one of our mirror sites:
               </p>
               <p className="text-xs text-gray-500 max-w-2xl mx-auto italic">
                 Note: Some sites may be temporarily unavailable due to free tier limitations or usage caps.
