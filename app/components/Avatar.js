@@ -113,7 +113,7 @@ export default function Avatar({ isSpeaking, videoToPlay, onVideoEnd, isAltAvata
   };
 
   return (
-    <div className="w-full h-full relative flex items-center justify-center overflow-hidden">
+    <div className="w-full h-full relative flex items-center justify-center overflow-hidden bg-black">
       
       {/* Red Play Button - Bottom Center */}
       {isIdle && (
