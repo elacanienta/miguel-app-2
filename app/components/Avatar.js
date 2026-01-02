@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 
-export default function Avatar({ isSpeaking, videoToPlay, onVideoEnd }) {
+export default function Avatar({ isSpeaking, videoToPlay, onVideoEnd, isAltAvatar, onAvatarSwitch }) {
   const videoRef = useRef(null);
   const idleVideoRef = useRef(null);
   const introVideoRef = useRef(null);
@@ -13,6 +13,12 @@ export default function Avatar({ isSpeaking, videoToPlay, onVideoEnd }) {
   const [isIdleLoading, setIsIdleLoading] = useState(true);
   const [isIntroLoading, setIsIntroLoading] = useState(false);
   const [isContentLoading, setIsContentLoading] = useState(false);
+
+  // Get video paths based on avatar type
+  const getVideoPath = (videoName) => {
+    const suffix = isAltAvatar ? 'ALT' : '';
+    return `/me/${videoName}${suffix}.mp4`;
+  };
 
   useEffect(() => {
     if (idleVideoRef.current) {
@@ -80,15 +86,32 @@ export default function Avatar({ isSpeaking, videoToPlay, onVideoEnd }) {
       
       {/* Red Play Button - Bottom Center */}
       {isIdle && (
-        <button
-          onClick={playIntro}
-          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 w-12 h-12 rounded-full bg-red-600 hover:bg-red-700 shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
-          aria-label="Play intro"
-        >
-          <svg className="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
-          </svg>
-        </button>
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-3">
+          <button
+            onClick={playIntro}
+            className="w-12 h-12 rounded-full bg-red-600 hover:bg-red-700 shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
+            aria-label="Play intro"
+          >
+            <svg className="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+            </svg>
+          </button>
+          
+          <button
+            onClick={onAvatarSwitch}
+            className={`w-10 h-10 rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-110 ${
+              isAltAvatar 
+                ? 'bg-blue-600 hover:bg-blue-700' 
+                : 'bg-gray-600 hover:bg-gray-700'
+            }`}
+            aria-label={`Switch to ${isAltAvatar ? 'default' : 'alternate'} avatar`}
+            title={`Currently: ${isAltAvatar ? 'Alternate' : 'Default'} Avatar`}
+          >
+            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"/>
+            </svg>
+          </button>
+        </div>
       )}
 
       {/* Intro Video */}
@@ -103,7 +126,7 @@ export default function Avatar({ isSpeaking, videoToPlay, onVideoEnd }) {
         controlsList="nodownload nofullscreen noremoteplayback"
         style={{ pointerEvents: 'none', display: showIntro ? 'block' : 'none' }}
       >
-        <source src="/me/Intro_Static.mp4" type="video/mp4" />
+        <source src={getVideoPath('Intro_Static')} type="video/mp4" />
       </video>
 
       {/* Idle Loop Video */}
@@ -119,7 +142,7 @@ export default function Avatar({ isSpeaking, videoToPlay, onVideoEnd }) {
         controlsList="nodownload nofullscreen noremoteplayback"
         style={{ pointerEvents: 'none', display: !showIntro ? 'block' : 'none' }}
       >
-        <source src="/me/Idle.mp4" type="video/mp4" />
+        <source src={getVideoPath('Idle')} type="video/mp4" />
       </video>
 
       {/* Content Video Overlay */}

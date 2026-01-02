@@ -7,13 +7,19 @@ import DeploymentSelector from './components/DeploymentSelector';
 
 export default function Home() {
   const [currentVideo, setCurrentVideo] = useState(null);
+  const [isAltAvatar, setIsAltAvatar] = useState(false);
 
   const playVideo = (videoName) => {
-    setCurrentVideo(`/me/${videoName}.mp4`);
+    const suffix = isAltAvatar ? 'ALT' : '';
+    setCurrentVideo(`/me/${videoName}${suffix}.mp4`);
   };
 
   const handleVideoEnd = () => {
     setCurrentVideo(null);
+  };
+
+  const handleAvatarSwitch = () => {
+    setIsAltAvatar(!isAltAvatar);
   };
 
   return (
@@ -49,6 +55,8 @@ export default function Home() {
                   isSpeaking={false}
                   videoToPlay={currentVideo}
                   onVideoEnd={handleVideoEnd}
+                  isAltAvatar={isAltAvatar}
+                  onAvatarSwitch={handleAvatarSwitch}
                 />
               </div>
             </div>
