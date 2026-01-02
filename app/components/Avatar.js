@@ -21,6 +21,12 @@ export default function Avatar({ isSpeaking, videoToPlay, onVideoEnd, isAltAvata
     return `/me/${videoName}${suffix}.mp4`;
   };
 
+  // Get poster image path based on avatar type
+  const getPosterPath = () => {
+    const suffix = isAltAvatar ? '-alt' : '';
+    return `/me/idle-poster${suffix}.jpg`;
+  };
+
   useEffect(() => {
     if (idleVideoRef.current) {
       // Set initial source and check if video is already loaded
@@ -114,7 +120,14 @@ export default function Avatar({ isSpeaking, videoToPlay, onVideoEnd, isAltAvata
 
   return (
     <div className="w-full h-full relative flex items-center justify-center overflow-hidden">
-      
+
+      {/* Static Poster Image - Always visible as background */}
+      <img
+        src={getPosterPath()}
+        alt="Avatar"
+        className="absolute inset-0 w-full h-full object-contain"
+      />
+
       {/* Red Play Button - Bottom Center */}
       {isIdle && (
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-3">
@@ -148,7 +161,7 @@ export default function Avatar({ isSpeaking, videoToPlay, onVideoEnd, isAltAvata
       {/* Intro Video */}
       <video
         ref={introVideoRef}
-        className="w-full h-full object-contain"
+        className="absolute inset-0 w-full h-full object-contain"
         onEnded={handleIntroEnd}
         onCanPlay={handleIntroReady}
         onLoadedData={handleIntroReady}
@@ -162,7 +175,7 @@ export default function Avatar({ isSpeaking, videoToPlay, onVideoEnd, isAltAvata
       {/* Idle Loop Video */}
       <video
         ref={idleVideoRef}
-        className="w-full h-full object-contain"
+        className="absolute inset-0 w-full h-full object-contain"
         loop
         muted
         preload="auto"
@@ -190,16 +203,15 @@ export default function Avatar({ isSpeaking, videoToPlay, onVideoEnd, isAltAvata
         />
       )}
 
-      {/* Loading Indicator - Only show on initial page load */}
-      {isIdleLoading && !showIntro && !isPlayingVideo && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+      {/* Loading Indicator - Show on initial load and video transitions */}
+      {(isIdleLoading || (isContentLoading && !isContentReady) || (isIntroLoading && !showIntro)) && (
+        <div className="absolute inset-0 flex items-center justify-center z-10">
           <div className="flex flex-col items-center gap-3">
             <div className="flex gap-1">
-              <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce"></div>
-              <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce" style={{animationDelay: '0.1s'}}></div>
-              <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce" style={{animationDelay: '0.2s'}}></div>
+              <div className="w-3 h-3 rounded-full bg-white shadow-lg animate-bounce"></div>
+              <div className="w-3 h-3 rounded-full bg-white shadow-lg animate-bounce" style={{animationDelay: '0.1s'}}></div>
+              <div className="w-3 h-3 rounded-full bg-white shadow-lg animate-bounce" style={{animationDelay: '0.2s'}}></div>
             </div>
-            <span className="text-xs text-gray-600">Loading</span>
           </div>
         </div>
       )}
