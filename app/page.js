@@ -50,7 +50,7 @@ export default function Home() {
           <QRCode />
           <div className="grid md:grid-cols-3 gap-6 items-center">
             <div className="md:col-span-1">
-              <div className="aspect-[2/3] rounded-xl overflow-hidden bg-black">
+              <div className="aspect-[2/3] rounded-xl overflow-hidden">
                 <Avatar
                   isSpeaking={false}
                   videoToPlay={currentVideo}
