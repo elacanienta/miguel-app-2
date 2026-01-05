@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 const deployments = [
   {
     name: 'Vercel',
-    url: 'https://miguel-ai-2.vercel.app/',
+    url: 'https://miguel-ai.vercel.app/',
     color: 'bg-black',
     textColor: 'text-black'
   },
@@ -17,19 +17,19 @@ const deployments = [
   },
   {
     name: 'Render',
-    url: 'https://miguel-ai-2.onrender.com/',
+    url: 'https://miguel-ai.onrender.com/',
     color: 'bg-purple-500',
     textColor: 'text-purple-600'
   },
   {
     name: 'Cloudflare',
-    url: 'https://miguel-ai-2.pages.dev/',
+    url: 'https://miguel-ai.pages.dev/',
     color: 'bg-orange-500',
     textColor: 'text-orange-600'
   },
   {
     name: 'GitHub',
-    url: 'https://elacanienta.github.io/miguel-ai-2/',
+    url: 'https://elacanienta.github.io/miguel-app/',
     color: 'bg-gray-700',
     textColor: 'text-gray-700'
   }
@@ -126,4 +126,5 @@ export default function DeploymentSelector() {
       )}
     </div>
   );
+
 }
